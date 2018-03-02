@@ -14,6 +14,7 @@ public class HeapSort {
     }
 
     private static void sort(int[] arr) {
+
         //构建大堆顶
         for (int i = arr.length / 2 - 1; i >= 0; i--) {
             adjustBigHeap(arr, i, arr.length);
@@ -34,9 +35,8 @@ public class HeapSort {
     private static void adjustBigHeap(int[] arr, int i, int length) {
         int temp = arr[i];
         for (int k = i * 2 + 1; k < length; k = k * 2 + 1) {
-            if (k + 1 < length && arr[k] < arr[k + 1]) {
-                k++;
-            }
+            if (k + 1 < length && arr[k] < arr[k + 1])
+                k = k + 1;
             if (arr[k] > temp) {
                 arr[i] = arr[k];
                 i = k;
